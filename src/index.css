@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  
+  --color-deep-dark: var(--deep-dark);
+  --color-dark-blue: var(--dark-blue);
+  --color-charcoal: var(--charcoal);
+  
+  --color-accent-premier: var(--accent-premier);
+  --color-accent-premier-dark: var(--accent-premier-dark);
+  
+  --color-electric-blue: var(--electric-blue);
+  --color-neon-purple: var(--neon-purple);
+  
+  --color-slate-950: var(--deep-dark);
+  --color-slate-900: var(--dark-blue);
+  --color-slate-800: var(--charcoal);
+
+  /* Font Sizes */
+  --text-xs: 0.75rem;     /* 12px */
+  --text-sm: 0.875rem;    /* 14px */
+  --text-base: 1rem;      /* 16px */
+  --text-lg: 1.125rem;    /* 18px */
+  --text-xl: 1.375rem;    /* 22px */
+  --text-2xl: 1.75rem;    /* 28px */
+  --text-3xl: 2.25rem;    /* 36px */
+  --text-4xl: 3rem;       /* 48px */
+  --text-huge: 5.375rem;  /* 86px */
+}
+
+:root {
+  /* Dark Theme Default */
+  --deep-dark: #000000;
+  --dark-blue: #0A0A0A;
+  --charcoal: #1A1A1A;
+  --accent-premier: #42EA95;
+  --accent-premier-dark: #03C7FD;
+  --electric-blue: #03C7FD;
+  --neon-purple: #7C3AED;
+  --text-heading: #FFFFFF;
+  --text-body: rgba(255, 255, 255, 0.85);
+  --text-muted: rgba(255, 255, 255, 0.55);
+  --border-color: rgba(255, 255, 255, 0.1);
+  --grid-opacity: 0.03;
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --shadow-color: rgba(0, 0, 0, 0.5);
+  --nav-bg: #000000;
+  --nav-text: #FFFFFF;
+}
+
+.light {
+  --deep-dark: #FFFFFF;
+  --dark-blue: #F8FAFC;
+  --charcoal: #F1F5F9;
+  --accent-premier: #10B981;
+  --accent-premier-dark: #0EA5E9;
+  --electric-blue: #0EA5E9;
+  --neon-purple: #8B5CF6;
+  --text-heading: #0F172A;
+  --text-body: #334155;
+  --text-muted: #64748B;
+  --border-color: rgba(0, 0, 0, 0.1);
+  --grid-opacity: 0.02;
+  --glass-bg: rgba(255, 255, 255, 0.8);
+  --glass-border: rgba(0, 0, 0, 0.05);
+  --shadow-color: rgba(0, 0, 0, 0.05);
+  --nav-bg: rgba(255, 255, 255, 0.9);
+  --nav-text: #1E293B;
+}
+
+@layer base {
+  body {
+    @apply font-sans bg-deep-dark text-base;
+    color: var(--text-body);
+    line-height: 1.5;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--text-heading);
+    line-height: 1.1;
+    @apply font-display tracking-tight;
+  }
+
+  h1 { @apply text-4xl font-bold; }
+  h2 { @apply text-3xl font-semibold; }
+  h3 { @apply text-2xl font-semibold; }
+  h4 { @apply text-xl font-medium; }
+
+  p {
+    line-height: 1.6;
+    color: var(--text-muted);
+  }
+}
+
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+}
+
+.glow-primary {
+  filter: drop-shadow(0 0 15px rgba(66, 234, 149, 0.3));
+}
+
+.glow-accent {
+  filter: drop-shadow(0 0 15px rgba(3, 199, 253, 0.3));
+}
+
+.brand-gradient {
+  background: linear-gradient(57deg, #40DB5C 0%, #03C7FD 50%, #40DB5C 100%);
+}
+
+.animate-slow-spin {
+  animation: spin 20s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.markdown-body h1 { @apply text-4xl font-bold mb-4 text-white; }
+.markdown-body h2 { @apply text-3xl font-semibold mb-3 text-white; }
+.markdown-body h3 { @apply text-2xl font-medium mb-2 text-white; }
+.markdown-body p { @apply mb-4 leading-relaxed; }
+.markdown-body ul { @apply list-disc pl-5 mb-4; }
+.markdown-body li { @apply mb-1; }
